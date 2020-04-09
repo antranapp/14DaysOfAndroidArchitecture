@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.peacemoon.androidcourse.architecture.volley_gson_picasso">
+    package="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="de.peacemoon.androidcourse.architecture.volley_gson_picasso.DetailActivity"
-                  android:parentActivityName="de.peacemoon.androidcourse.architecture.volley_gson_picasso.MainActivity"></activity>
-        <activity android:name="de.peacemoon.androidcourse.architecture.volley_gson_picasso.MainActivity"
+        <activity
+            android:name="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide.DetailActivity"
+            android:parentActivityName="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide.MainActivity" />
+        <activity android:name="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide.MainActivity"
                   android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

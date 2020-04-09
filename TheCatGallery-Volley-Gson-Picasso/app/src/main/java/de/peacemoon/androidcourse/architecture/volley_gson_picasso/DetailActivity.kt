@@ -2,15 +2,19 @@ package de.peacemoon.androidcourse.architecture.volley_gson_picasso
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.ProgressBar
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
+    private lateinit var loadingSpinner: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,7 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         imageView = findViewById(R.id.imageView)
+        loadingSpinner = findViewById(R.id.progressBar)
 
         loadImage()
     }
@@ -36,7 +41,15 @@ class DetailActivity : AppCompatActivity() {
                 .load(it)
                 .fit()
                 .centerInside()
-                .into(imageView)
+                .into(imageView, object: Callback {
+                    override fun onSuccess() {
+                        loadingSpinner.visibility = View.GONE
+                    }
+
+                    override fun onError(e: Exception?) {
+                        loadingSpinner.visibility = View.GONE
+                    }
+                })
         }
     }
 }

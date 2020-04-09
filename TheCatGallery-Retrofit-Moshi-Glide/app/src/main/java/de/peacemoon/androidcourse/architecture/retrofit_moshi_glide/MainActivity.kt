@@ -1,4 +1,4 @@
-package de.peacemoon.androidcourse.architecture.volley_gson_picasso
+package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,21 +8,30 @@ import android.view.Window
 import android.view.WindowManager.*
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.*
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.google.gson.GsonBuilder
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private val URL = "https://api.thecatapi.com/v1/images/search?limit=30&page=%d&order=DESC&api_key=%s"
+    private val BASE_URL = "https://api.thecatapi.com/v1/"
     private val NUMBER_OF_COLUMN = 3
 
     private val imageList: MutableList<Image> = ArrayList<Image>()
     private lateinit var progressBar: ProgressBar
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ImageListAdapter
+
+    private val service = Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(MoshiConverterFactory.create()) // Use Moshi to serialize/deserialize JSON.
+        .build()
+        .create(TheCatAPIService::class.java)
 
     var page = 1
     var isLastPage = false
@@ -57,14 +66,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupListView() {
         recyclerView = findViewById(R.id.recyclerView)
 
-        adapter = ImageListAdapter(this, imageList)
-
         val layoutManager = GridLayoutManager(this@MainActivity, NUMBER_OF_COLUMN)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = ImageListAdapter(this@MainActivity, imageList.toList())
-
         recyclerView.itemAnimator = DefaultItemAnimator()
-
+        adapter = ImageListAdapter(this, applicationContext, imageList)
         recyclerView.adapter = adapter
 
         recyclerView.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
@@ -83,25 +88,25 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun updateImageList(newImageList: Array<Image>) {
+    private fun updateImageList(newImageList: List<Image>) {
         imageList += newImageList
         adapter.notifyDataSetChanged()
     }
-
     private fun loadImageList() {
         progressBar.visibility = View.VISIBLE
-        val stringRequest = StringRequest(URL.format(page, R.string.THECATAPI_API_KEY),
-            Response.Listener<String?> { response ->
-                val gson = GsonBuilder().create()
-                val currentImageList = gson.fromJson(response, Array<Image>::class.java)
-                updateImageList(currentImageList)
-                progressBar.visibility = View.GONE
-            }, Response.ErrorListener {
-                progressBar.visibility = View.GONE
-                Log.e("ERROR", it.toString())
-            })
 
-        val requestQueue = Volley.newRequestQueue(this)
-        requestQueue.add(stringRequest)
+        val call = service.searchImages(page, getString(R.string.THECATAPI_API_KEY))
+        call.enqueue(object: Callback<List<Image>> {
+            override fun onFailure(call: Call<List<Image>>, t: Throwable) {
+                progressBar.visibility = View.GONE
+            }
+
+            override fun onResponse(call: Call<List<Image>>, response: Response<List<Image>>) {
+                progressBar.visibility = View.GONE
+                response.body()?.let {
+                    updateImageList(it)
+                }
+            }
+        })
     }
 }
