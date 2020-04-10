@@ -2,7 +2,6 @@ package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager.*
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val NUMBER_OF_COLUMN = 3
 
     private val imageList: MutableList<Image> = ArrayList<Image>()
-    private lateinit var progressBar: ProgressBar
+    private lateinit var loadingSpinner: ProgressBar
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ImageListAdapter
 
@@ -45,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        progressBar = findViewById(R.id.progressBar)
+        loadingSpinner = findViewById(R.id.progressBar)
 
         setupListView()
 
@@ -93,16 +92,16 @@ class MainActivity : AppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
     private fun loadImageList() {
-        progressBar.visibility = View.VISIBLE
+        loadingSpinner.visibility = View.VISIBLE
 
         val call = service.searchImages(page, getString(R.string.THECATAPI_API_KEY))
         call.enqueue(object: Callback<List<Image>> {
             override fun onFailure(call: Call<List<Image>>, t: Throwable) {
-                progressBar.visibility = View.GONE
+                loadingSpinner.visibility = View.GONE
             }
 
             override fun onResponse(call: Call<List<Image>>, response: Response<List<Image>>) {
-                progressBar.visibility = View.GONE
+                loadingSpinner.visibility = View.GONE
                 response.body()?.let {
                     updateImageList(it)
                 }

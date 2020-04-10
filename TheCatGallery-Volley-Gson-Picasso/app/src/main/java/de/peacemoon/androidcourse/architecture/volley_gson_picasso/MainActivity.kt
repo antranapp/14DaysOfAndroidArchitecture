@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     private val NUMBER_OF_COLUMN = 3
 
     private val imageList: MutableList<Image> = ArrayList<Image>()
-    private lateinit var progressBar: ProgressBar
+    private lateinit var loadingSpinner: ProgressBar
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ImageListAdapter
 
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        progressBar = findViewById(R.id.progressBar)
+        loadingSpinner = findViewById(R.id.progressBar)
 
         setupListView()
 
@@ -57,14 +57,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupListView() {
         recyclerView = findViewById(R.id.recyclerView)
 
-        adapter = ImageListAdapter(this, imageList)
-
         val layoutManager = GridLayoutManager(this@MainActivity, NUMBER_OF_COLUMN)
         recyclerView.layoutManager = layoutManager
-        recyclerView.adapter = ImageListAdapter(this@MainActivity, imageList.toList())
-
         recyclerView.itemAnimator = DefaultItemAnimator()
-
+        adapter = ImageListAdapter(this, imageList)
         recyclerView.adapter = adapter
 
         recyclerView.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
@@ -89,15 +85,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadImageList() {
-        progressBar.visibility = View.VISIBLE
+        loadingSpinner.visibility = View.VISIBLE
         val stringRequest = StringRequest(URL.format(page, R.string.THECATAPI_API_KEY),
             Response.Listener<String?> { response ->
                 val gson = GsonBuilder().create()
                 val currentImageList = gson.fromJson(response, Array<Image>::class.java)
                 updateImageList(currentImageList)
-                progressBar.visibility = View.GONE
+                loadingSpinner.visibility = View.GONE
             }, Response.ErrorListener {
-                progressBar.visibility = View.GONE
+                loadingSpinner.visibility = View.GONE
                 Log.e("ERROR", it.toString())
             })
 

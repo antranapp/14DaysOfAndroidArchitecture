@@ -1,4 +1,4 @@
-package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide
+package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_rxjava
 
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
@@ -12,8 +12,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.activity_detail.*
-import okhttp3.internal.http.RequestLine
 
 class DetailActivity : AppCompatActivity() {
 
