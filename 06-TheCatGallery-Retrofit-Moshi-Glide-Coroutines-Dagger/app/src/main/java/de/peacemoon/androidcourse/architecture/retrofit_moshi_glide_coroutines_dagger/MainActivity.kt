@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.*
 import retrofit2.*
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loadingSpinner: ProgressBar
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ImageListAdapter
+
+    lateinit var repository: CatImageRepository
 
     private val service = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -47,7 +50,8 @@ class MainActivity : AppCompatActivity() {
 
         setupListView()
 
-        loadImageList()
+        repository = CatImageRepository(service, getString(R.string.THECATAPI_API_KEY))
+        loadImageList(page)
     }
 
     fun showImage(position: Int) {
@@ -81,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun loadMoreItems() {
                 page++
-                loadImageList()
+                loadImageList(page)
             }
         })
     }
@@ -93,26 +97,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadImageList() {
+    private fun loadImageList(page: Int) {
         loadingSpinner.visibility = View.VISIBLE
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = service.searchImages(page, getString(R.string.THECATAPI_API_KEY))
-            withContext(Dispatchers.Main) {
+        repository.loadImageList(page, object: CatImageRepository.Callback<List<Image>?> {
+
+            override fun onSuccess(t: List<Image>?) {
                 loadingSpinner.visibility = View.GONE
-                try {
-                    if (response.isSuccessful) {
-                        updateImageList(response.body())
-                    } else {
-                        toast("Error: ${response.code()}")
-                    }
-                } catch (e: HttpException) {
-                    toast("Exception ${e.message}")
-                } catch (e: Throwable) {
-                    toast("Ooops: Something else went wrong")
+                updateImageList(t)
+            }
+
+            override fun onError(code: Int?, e: Exception?) {
+                code?.let {
+                    toast("Error: ${it}")
+                }
+
+                e?.let {
+                    toast("Exception: ${e.message}")
                 }
             }
-        }
+
+        })
     }
 
     private fun toast(message: String) {
