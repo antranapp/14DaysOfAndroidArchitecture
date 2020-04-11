@@ -5,9 +5,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 class CatImageRepository constructor(var theCatAPIService: TheCatAPIService,
-                                     private val apiKey: String) {
+                                                 private val apiKey: String) {
 
     companion object {
         private const val TAG = "CatImageRepository"
@@ -25,7 +26,6 @@ class CatImageRepository constructor(var theCatAPIService: TheCatAPIService,
 
                 try {
                     if (response.isSuccessful) {
-                        //updateImageList(response.body())
                         callback?.onSuccess(response.body())
                     } else {
                         Log.i(TAG, "Error: ${response.code()}")

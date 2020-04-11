@@ -18,7 +18,6 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private val BASE_URL = "https://api.thecatapi.com/v1/"
     private val NUMBER_OF_COLUMN = 3
 
     private val imageList: MutableList<Image> = ArrayList<Image>()
@@ -26,13 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ImageListAdapter
 
-    lateinit var repository: CatImageRepository
-
-    private val service = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(MoshiConverterFactory.create()) // Use Moshi to serialize/deserialize JSON.
-        .build()
-        .create(TheCatAPIService::class.java)
+    @Inject lateinit var repository: CatImageRepository
 
     var page = 1
     var isLastPage = false
@@ -50,7 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         setupListView()
 
-        repository = CatImageRepository(service, getString(R.string.THECATAPI_API_KEY))
+        repository = CatImageModule.provideCatImageRepository(getString(R.string.THECATAPI_API_KEY))
+
         loadImageList(page)
     }
 
