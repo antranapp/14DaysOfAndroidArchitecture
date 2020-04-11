@@ -11,9 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.*
-import retrofit2.*
-import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -43,7 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         setupListView()
 
-        repository = CatImageModule.provideCatImageRepository(getString(R.string.THECATAPI_API_KEY))
+        DaggerMainActivityComponent
+            .builder()
+            .networkModule(NetworkModule("https://api.thecatapi.com/v1/", getString(R.string.THECATAPI_API_KEY)))
+            .build().inject(this)
 
         loadImageList(page)
     }
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 e?.let {
-                    toast("Exception: ${e.message}")
+                    toast("Exception: ${it.message}")
                 }
             }
 

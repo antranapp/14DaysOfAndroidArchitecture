@@ -7,8 +7,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CatImageRepository constructor(var theCatAPIService: TheCatAPIService,
-                                                 private val apiKey: String) {
+class CatImageRepository @Inject constructor(var theCatAPIService: TheCatAPIService,
+                                             private val apiKey: String) {
 
     companion object {
         private const val TAG = "CatImageRepository"
