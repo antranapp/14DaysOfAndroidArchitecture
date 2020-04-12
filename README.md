@@ -1,20 +1,37 @@
-# Android Architectures in 30 days.
+# Android Architectures in 14 days.
 
 ## The cat app
 
-- Basic: Raw kotlin without any external libraries:
+### Basic: Raw kotlin without any external libraries:
 
-- VGP: Volley + Gson + Picasso:
+### Volley + Gson + Picasso:
 
-- RMG: Retrofit + Moshi + Glide:
+### Retrofit + Moshi + Glide:
+
     - https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/
+
     - https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
 
-- RMG-RxJava:
+### Retrofit + Moshi + Glide + RxJava:
 
-- RMG-Coroutines:
+### Retrofit + Moshi + Glide +-Coroutines:
+
     - https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
 
-- RMG-RxJava-Dagger:
+### Retrofit + Moshi + Glide + RxJava + Dagger:
 
-- RMG-Coroutine-Dagger:
+### Retrofit + Moshi + Glide + Coroutines + Dagger:
+
+### Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel:
+
+    - Factory for a specific viewModel: 
+
+        - https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering
+
+        - https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff 
+
+    - Factory for generic viewModels: 
+
+        - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
+
+        - https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/
