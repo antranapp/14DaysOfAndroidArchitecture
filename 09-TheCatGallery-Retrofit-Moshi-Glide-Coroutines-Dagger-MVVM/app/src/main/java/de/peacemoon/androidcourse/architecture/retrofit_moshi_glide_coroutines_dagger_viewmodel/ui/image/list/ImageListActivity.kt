@@ -1,4 +1,4 @@
-package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image
+package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,10 +14,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.R
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
-import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.PaginationScrollListener
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.utils.PaginationScrollListener
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.detail.ImageDetailActivity
-import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListAdapter
-import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListViewModel
 
 class ImageListActivity : AppCompatActivity() {
 
@@ -41,7 +39,7 @@ class ImageListActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(ImageListViewModel::class.java)
 
-        viewModel.getImageListLiveData().observe(this, Observer<List<Image>> { imageList ->
+        viewModel.getImageList().observe(this, Observer<List<Image>> { imageList ->
             loadingSpinner.visibility = View.GONE
             if (imageList.isNotEmpty()) {
                 adapter.notifyDataSetChanged()
@@ -54,7 +52,7 @@ class ImageListActivity : AppCompatActivity() {
     }
 
     fun showImage(position: Int) {
-        val image = viewModel.getImageListLiveData().value!![position]
+        val image = viewModel.getImageList().value!![position]
         val intent = Intent(this, ImageDetailActivity::class.java).apply {
             val bundle = Bundle()
             bundle.putSerializable("image", image)
@@ -74,7 +72,7 @@ class ImageListActivity : AppCompatActivity() {
             ImageListAdapter(
                 this,
                 applicationContext,
-                viewModel.getImageListLiveData().value!!
+                viewModel.getImageList().value!!
             )
         recyclerView.adapter = adapter
 

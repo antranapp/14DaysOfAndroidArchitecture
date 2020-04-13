@@ -13,8 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.detail.ImageDetailActivity"
-            android:parentActivityName="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.ImageListActivity" />
-        <activity android:name="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.ImageListActivity"
+            android:parentActivityName="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListActivity" />
+        <activity android:name="de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListActivity"
                   android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

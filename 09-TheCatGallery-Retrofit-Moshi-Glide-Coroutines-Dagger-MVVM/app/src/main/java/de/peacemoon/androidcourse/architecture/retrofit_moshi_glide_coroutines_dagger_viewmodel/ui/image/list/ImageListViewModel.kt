@@ -15,7 +15,7 @@ class ImageListViewModel(application: Application): BaseViewModel(application) {
         private const val TAG = "ImageListViewModel"
     }
 
-    private var imageListLiveData: MutableLiveData<MutableList<Image>> = MutableLiveData(ArrayList())
+    private var imageList: MutableLiveData<MutableList<Image>> = MutableLiveData(ArrayList())
 
     var page = 1
     var isLastPage = false
@@ -24,8 +24,8 @@ class ImageListViewModel(application: Application): BaseViewModel(application) {
     @Inject
     lateinit var repository: CatImageRepository
 
-    fun getImageListLiveData(): LiveData<MutableList<Image>> {
-        return imageListLiveData
+    fun getImageList(): LiveData<MutableList<Image>> {
+        return imageList
     }
 
     fun loadImageList(page: Int) {
@@ -47,7 +47,6 @@ class ImageListViewModel(application: Application): BaseViewModel(application) {
                     Log.e(TAG, "Exception: ${it.message}")
                 }
             }
-
         })
     }
 
@@ -56,8 +55,8 @@ class ImageListViewModel(application: Application): BaseViewModel(application) {
             if (it.isEmpty()) {
                 isLastPage = true
             }
-            imageListLiveData.value?.addAll(it)
-            imageListLiveData.value = imageListLiveData.value
+            imageList.value?.addAll(it)
+            imageList.value = imageList.value
         }
     }
 }

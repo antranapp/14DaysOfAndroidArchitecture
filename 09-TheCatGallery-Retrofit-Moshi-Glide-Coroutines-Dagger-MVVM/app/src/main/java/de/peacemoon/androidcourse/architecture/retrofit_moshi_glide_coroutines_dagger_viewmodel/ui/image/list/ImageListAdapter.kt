@@ -8,7 +8,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.R
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
-import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.ImageListActivity
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.utils.GlideApp
 
 class ImageListAdapter(

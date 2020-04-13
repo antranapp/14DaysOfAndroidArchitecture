@@ -6,6 +6,7 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.di.component.DaggerViewModelComponent
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.di.component.ViewModelComponent
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.di.module.NetworkModule
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.detail.ImageDetailViewModel
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListViewModel
 
 abstract class BaseViewModel(application: Application) : AndroidViewModel(application) {
@@ -29,6 +30,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
     private fun inject() {
         when (this) {
             is ImageListViewModel -> component.inject(this)
+            is ImageDetailViewModel -> component.inject(this)
         }
     }
 
