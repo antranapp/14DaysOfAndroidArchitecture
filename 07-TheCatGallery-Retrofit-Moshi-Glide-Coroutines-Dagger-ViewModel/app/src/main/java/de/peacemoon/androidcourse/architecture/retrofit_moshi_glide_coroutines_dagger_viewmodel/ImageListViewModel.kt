@@ -19,8 +19,7 @@ class ImageListViewModel(private val repository: CatImageRepository): ViewModel(
         private const val TAG = "ImageListViewModel"
     }
 
-    private var imageList: MutableList<Image> = ArrayList<Image>()
-    private var imageListLiveData: MutableLiveData<MutableList<Image>> = MutableLiveData(imageList)
+    private var imageListLiveData: MutableLiveData<MutableList<Image>> = MutableLiveData(ArrayList<Image>())
 
     var page = 1
     var isLastPage = false
@@ -58,14 +57,8 @@ class ImageListViewModel(private val repository: CatImageRepository): ViewModel(
             if (it.isEmpty()) {
                 isLastPage = true
             }
-            imageList.addAll(newImageList)
-            imageListLiveData.value = imageList
+            imageListLiveData.value?.addAll(it)
+            imageListLiveData.value = imageListLiveData.value
         }
     }
-
-//    private fun <T> MutableLiveData<List<T>>.add(newItems: List<T>) {
-//        val updatedItems = this.value as ArrayList
-//        updatedItems.plus(newItems)
-//        this.value = updatedItems
-//    }
 }
