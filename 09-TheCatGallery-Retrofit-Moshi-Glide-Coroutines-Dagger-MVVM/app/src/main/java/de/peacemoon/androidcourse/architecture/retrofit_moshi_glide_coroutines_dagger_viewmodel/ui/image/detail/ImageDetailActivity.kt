@@ -1,4 +1,4 @@
-package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image
+package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.detail
 
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +16,7 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.utils.GlideApp
 
-class DetailActivity : AppCompatActivity() {
+class ImageDetailActivity : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
     private lateinit var loadingSpinner: ProgressBar

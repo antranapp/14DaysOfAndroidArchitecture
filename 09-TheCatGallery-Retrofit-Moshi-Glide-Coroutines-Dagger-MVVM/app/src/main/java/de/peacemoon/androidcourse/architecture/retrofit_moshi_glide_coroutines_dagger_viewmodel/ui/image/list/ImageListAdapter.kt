@@ -1,4 +1,4 @@
-package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image
+package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,10 +8,11 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.R
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.ImageListActivity
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.utils.GlideApp
 
 class ImageListAdapter(
-    private val mainActivity: MainActivity,
+    private val imageListActivity: ImageListActivity,
     private val context: Context,
     private val imageList: List<Image>): RecyclerView.Adapter<ImageListAdapter.ListItemHolder>() {
 
@@ -42,7 +43,7 @@ class ImageListAdapter(
         }
 
         override fun onClick(view: View) {
-            mainActivity.showImage(adapterPosition)
+            imageListActivity.showImage(adapterPosition)
         }
     }
 }

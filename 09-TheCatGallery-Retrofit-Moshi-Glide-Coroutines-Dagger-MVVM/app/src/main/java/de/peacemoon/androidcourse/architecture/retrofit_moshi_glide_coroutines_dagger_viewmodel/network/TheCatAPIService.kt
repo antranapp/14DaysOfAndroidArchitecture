@@ -9,4 +9,7 @@ interface TheCatAPIService {
 
     @GET("images/search?limit=30&order=DESC")
     suspend fun searchImages(@Query("page") page: Int, @Query("api_key") apiKey: String): Response<List<Image>>
+
+    @GET("images/")
+    suspend fun getImage(@Query("image_id") imageID: String, @Query("api_key") apiKey: String): Response<Image>
 }

@@ -52,3 +52,9 @@ Inject the repository directly into the ViewModel
 ### Day 12: Testing
 
 ### Day 13 + 14: Add https://dog.ceo/ API
+
+## Additional Resources:
+
+### Dagger:
+
+    - https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context

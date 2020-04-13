@@ -39,4 +39,23 @@ class CatImageRepository @Inject constructor(var theCatAPIService: TheCatAPIServ
             }
         }
     }
+
+    fun getImage(imageID: String, callback: Callback<Image?>?) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = theCatAPIService.getImage(imageID, apiKey)
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        callback?.onSuccess(response.body())
+                    } else {
+                        Log.i(TAG, "Error: ${response.code()}")
+                        callback?.onError(response.code(), null)
+                    }
+                } catch (e: Exception) {
+                    Log.i(TAG, "Exception ${e.message}")
+                    callback?.onError(null, e)
+                }
+            }
+        }
+    }
 }

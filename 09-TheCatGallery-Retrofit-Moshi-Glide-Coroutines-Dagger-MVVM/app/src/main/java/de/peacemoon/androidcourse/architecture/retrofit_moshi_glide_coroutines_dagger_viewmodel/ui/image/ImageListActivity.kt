@@ -15,8 +15,11 @@ import androidx.recyclerview.widget.RecyclerView
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.R
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.PaginationScrollListener
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.detail.ImageDetailActivity
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListAdapter
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.ui.image.list.ImageListViewModel
 
-class MainActivity : AppCompatActivity() {
+class ImageListActivity : AppCompatActivity() {
 
     private val NUMBER_OF_COLUMN = 3
 
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
     fun showImage(position: Int) {
         val image = viewModel.getImageListLiveData().value!![position]
-        val intent = Intent(this, DetailActivity::class.java).apply {
+        val intent = Intent(this, ImageDetailActivity::class.java).apply {
             val bundle = Bundle()
             bundle.putSerializable("image", image)
             putExtras(bundle)
