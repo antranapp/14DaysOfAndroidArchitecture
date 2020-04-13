@@ -2,27 +2,27 @@
 
 ## The cat app
 
-### Basic: Raw kotlin without any external libraries:
+### Day 1: Basic: Raw kotlin without any external libraries:
 
-### Volley + Gson + Picasso:
+### Day 2: Volley + Gson + Picasso:
 
-### Retrofit + Moshi + Glide:
+### Day 3: Retrofit + Moshi + Glide:
 
     - https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/
 
     - https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
 
-### Retrofit + Moshi + Glide + RxJava:
+### Day 4: Retrofit + Moshi + Glide + RxJava:
 
-### Retrofit + Moshi + Glide +-Coroutines:
+### Day 5: Retrofit + Moshi + Glide +-Coroutines:
 
     - https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
 
-### Retrofit + Moshi + Glide + RxJava + Dagger:
+### Day 6: Retrofit + Moshi + Glide + RxJava + Dagger:
 
-### Retrofit + Moshi + Glide + Coroutines + Dagger:
+### Day 7: Retrofit + Moshi + Glide + Coroutines + Dagger:
 
-### Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel:
+### Day 8: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData:
 
     - Factory for a specific viewModel: 
 
@@ -35,3 +35,12 @@
         - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
 
         - https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/
+
+### Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored):
+
+Inject the repository directly into the ViewModel
+ 
+    - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+
+
+### Day 10 + 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM:
