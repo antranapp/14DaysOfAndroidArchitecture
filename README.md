@@ -39,8 +39,16 @@
 ### Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored):
 
 Inject the repository directly into the ViewModel
- 
-    - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
 
 
 ### Day 10 + 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM:
+
+    - Folder structure
+    - Multiple ViewModels
+    - Caching using Room
+    
+    - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+
+### Day 12: Testing
+
+### Day 13 + 14: Add https://dog.ceo/ API
