@@ -2,21 +2,33 @@
 
 ## The cat app
 
+- Fetching list of cat images from thecatapi.com.
+- Display the cat image when choosen.
+
 ### Day 1: Basic: Raw kotlin without any external libraries:
+
+This basic project doesn't use any 3rd party frameworks.
 
 ### Day 2: Volley + Gson + Picasso:
 
+- Volley is used for Networking
+- Gson is used for Deserializing of JSON response
+- Picasso is used for displaying & caching of image data.
+
 ### Day 3: Retrofit + Moshi + Glide:
 
-    - https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/
+- Retrofit is used for Networking. Why? 
+- Moshi is used for Deserializing of JSON response. Why?
+- Glide is used for displaying & caching of image data. Why?
 
-    - https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
+- https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/
+- https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
 
 ### Day 4: Retrofit + Moshi + Glide + RxJava:
 
-### Day 5: Retrofit + Moshi + Glide +-Coroutines:
+### Day 5: Retrofit + Moshi + Glide + Coroutines:
 
-    - https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
+- https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
 
 ### Day 6: Retrofit + Moshi + Glide + RxJava + Dagger:
 
@@ -24,17 +36,12 @@
 
 ### Day 8: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData:
 
-    - Factory for a specific viewModel: 
-
-        - https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering
-
-        - https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff 
-
-    - Factory for generic viewModels: 
-
-        - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
-
-        - https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/
+- Factory for a specific viewModel: 
+    - https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering
+    - https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff 
+- Factory for generic viewModels: 
+    - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
+    - https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/
 
 ### Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored):
 
