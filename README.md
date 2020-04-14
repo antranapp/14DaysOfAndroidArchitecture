@@ -41,13 +41,18 @@
 Inject the repository directly into the ViewModel
 
 
-### Day 10 + 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM:
+### Day 10: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM:
 
-    - Folder structure
-    - Multiple ViewModels
-    - Caching using Room
-    
-    - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+- Folder structure
+- Multiple ViewModels
+- Multiple Dagger modules
+- Caching using Room
+
+### Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList
+
+- Provide BaseURL via Dagger in ApplicationComponent.
+- PagedList Component.
+- View binding.
 
 ### Day 12: Testing
 
@@ -55,6 +60,20 @@ Inject the repository directly into the ViewModel
 
 ## Additional Resources:
 
+### Architectures:
+
+- https://proandroiddev.com/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7
+- https://medium.com/@maqsoodzai1989/android-mvvm-using-dagger-room-navigation-controller-rx-livedata-retrofit-c6fbc4fd11a5
+- https://android.jlelse.eu/android-mvvm-with-dagger-2-retrofit-rxjava-architecture-components-6f5da1a75135
+- https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+
+### Completed apps:
+
+- https://github.com/android/architecture-samples
+- https://github.com/android/sunflower
+- https://github.com/Eli-Fox/LEGO-Catalog
+- https://github.com/theozgurr/LibraryApp
+
 ### Dagger:
 
-    - https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context
+- https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context

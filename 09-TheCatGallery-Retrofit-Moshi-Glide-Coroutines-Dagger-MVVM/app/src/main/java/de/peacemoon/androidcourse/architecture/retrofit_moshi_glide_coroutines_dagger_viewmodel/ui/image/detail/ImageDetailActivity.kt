@@ -43,9 +43,9 @@ class ImageDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(ImageDetailViewModel::class.java)
 
-        viewModel.getImage().observe(this, Observer<Image> { image ->
+        viewModel.getImage().observe(this, Observer<Image> { newImage ->
             loadingSpinner.visibility = View.GONE
-            showImage(image)
+            showImage(newImage)
         })
 
         image?.let {
@@ -54,37 +54,33 @@ class ImageDetailActivity : AppCompatActivity() {
     }
 
     private fun showImage(image: Image) {
+        GlideApp
+            .with(this)
+            .load(image)
+            .centerCrop()
+            .listener(object: RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    loadingSpinner.visibility = View.GONE
+                    return false
+                }
 
-        image?.url.let {
-            GlideApp.with(
-                this
-            )
-                .load(it)
-                .centerCrop()
-                .listener(object: RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        loadingSpinner.visibility = View.GONE
-                        return false
-                    }
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    loadingSpinner.visibility = View.GONE
+                    return false
+                }
 
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        loadingSpinner.visibility = View.GONE
-                        return false
-                    }
-
-                })
-                .into(imageView)
-        }
+            })
+            .into(imageView)
     }
 }

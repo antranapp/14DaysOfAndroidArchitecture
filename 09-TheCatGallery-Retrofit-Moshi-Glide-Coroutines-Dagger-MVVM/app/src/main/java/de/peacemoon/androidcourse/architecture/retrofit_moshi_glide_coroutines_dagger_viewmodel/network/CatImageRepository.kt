@@ -2,13 +2,14 @@ package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_
 
 import android.util.Log
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.Image
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_viewmodel.model.ImageDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class CatImageRepository @Inject constructor(var theCatAPIService: TheCatAPIService,
+class CatImageRepository @Inject constructor(private var theCatAPIService: TheCatAPIService,
                                              private val apiKey: String) {
 
     companion object {
