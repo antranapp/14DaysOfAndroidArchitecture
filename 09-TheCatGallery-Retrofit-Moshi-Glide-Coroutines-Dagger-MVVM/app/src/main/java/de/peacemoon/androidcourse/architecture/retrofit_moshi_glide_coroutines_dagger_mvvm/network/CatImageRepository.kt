@@ -2,6 +2,7 @@ package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_
 
 import android.util.Log
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.model.Image
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.model.ImageDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -9,7 +10,8 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class CatImageRepository @Inject constructor(private var theCatAPIService: TheCatAPIService,
-                                             private val apiKey: String) {
+                                             private val apiKey: String,
+                                             private var imageDao: ImageDao) {
 
     companion object {
         private const val TAG = "CatImageRepository"

@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.*
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.di.component.DaggerViewModelComponent
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.di.component.ViewModelComponent
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.di.module.DatabaseModule
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.di.module.NetworkModule
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.ui.image.detail.ImageDetailViewModel
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.ui.image.list.ImageListViewModel
@@ -12,6 +13,7 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 abstract class BaseViewModel(application: Application) : AndroidViewModel(application) {
 
     private val component: ViewModelComponent = DaggerViewModelComponent.builder()
+        .databaseModule(DatabaseModule(application))
         .networkModule(
             NetworkModule(
                 "https://api.thecatapi.com/v1/",

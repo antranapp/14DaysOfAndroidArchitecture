@@ -9,11 +9,11 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 import javax.inject.Singleton
 
 @Module
-class DatabaseModule {
+class DatabaseModule(private val application: Application) {
 
     @Provides
     @Singleton
-    fun provideImageDatabase(application: Application): ImageDatabase {
+    fun provideImageDatabase(): ImageDatabase {
         return Room.databaseBuilder(application, ImageDatabase::class.java, "images.db").build()
     }
 

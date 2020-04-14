@@ -50,6 +50,10 @@ Inject the repository directly into the ViewModel
 
 ### Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList
 
+- MultiBinding with Dagger: 
+    - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
+    - https://medium.com/@marco_cattaneo/android-viewmodel-and-factoryprovider-good-way-to-manage-it-with-dagger-2-d9e20a07084c
+    - https://www.youtube.com/watch?v=jCYj_MYCgEQ
 - Provide BaseURL via Dagger in ApplicationComponent.
 - PagedList Component.
 - View binding.
