@@ -29,7 +29,6 @@ class ImageListActivity : AppCompatActivity() {
     private lateinit var viewModel: ImageListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
