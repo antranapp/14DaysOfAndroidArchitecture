@@ -26,7 +26,6 @@ class CatImageRepository @Inject constructor(private var theCatAPIService: TheCa
         CoroutineScope(Dispatchers.IO).launch {
             val response = theCatAPIService.searchImages(page, apiKey)
             withContext(Dispatchers.Main) {
-
                 try {
                     if (response.isSuccessful) {
                         callback?.onSuccess(response.body())
@@ -44,18 +43,27 @@ class CatImageRepository @Inject constructor(private var theCatAPIService: TheCa
 
     fun getImage(imageID: String, callback: Callback<Image?>?) {
         CoroutineScope(Dispatchers.IO).launch {
-            val response = theCatAPIService.getImage(imageID, apiKey)
-            withContext(Dispatchers.Main) {
-                try {
-                    if (response.isSuccessful) {
-                        callback?.onSuccess(response.body())
-                    } else {
-                        Log.i(TAG, "Error: ${response.code()}")
-                        callback?.onError(response.code(), null)
+             val imageFromDB = imageDao.getImage(imageID)
+             if (imageFromDB != null) {
+                 withContext(Dispatchers.Main) {
+                     callback?.onSuccess(imageFromDB)
+                 }
+             } else {
+                val networkResponse = theCatAPIService.getImage(imageID, apiKey)
+                withContext(Dispatchers.Main) {
+                    try {
+                        val image = networkResponse.body()
+                        if (networkResponse.isSuccessful) {
+                            try { imageDao.insert(image!!) } catch (e: Exception) {}
+                            callback?.onSuccess(image)
+                        } else {
+                            Log.i(TAG, "Error: ${networkResponse.code()}")
+                            callback?.onError(networkResponse.code(), null)
+                        }
+                    } catch (e: Exception) {
+                        Log.i(TAG, "Exception ${e.message}")
+                        callback?.onError(null, e)
                     }
-                } catch (e: Exception) {
-                    Log.i(TAG, "Exception ${e.message}")
-                    callback?.onError(null, e)
                 }
             }
         }

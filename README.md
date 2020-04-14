@@ -47,6 +47,7 @@ Inject the repository directly into the ViewModel
 - Multiple ViewModels
 - Multiple Dagger modules
 - Caching using Room
+    - https://proandroiddev.com/imagining-your-repository-layer-with-coroutines-7ee052ee4caa
 
 ### Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList
 

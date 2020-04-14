@@ -2,13 +2,14 @@ package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
 interface ImageDao {
-    @Query("SELECT * FROM image")
-    fun getAll(): List<Image>
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(image: Image)
 
-    @Insert
-    fun insertAll(vararg images: Image)
+    @Query("SELECT * FROM image WHERE id = :id")
+    suspend fun getImage(id: String): Image?
 }
