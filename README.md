@@ -68,13 +68,17 @@ Inject the repository directly into the ViewModel
 
 ### Day 12: Testing
 
-### Day 13 + 14: Add https://dog.ceo/ API
+### Day 13: Adding dog.ceo
+
+### Day 14: Use Koin instead of Dagger
+
+- https://medium.com/@gunayadem.dev/boost-your-android-apps-with-koin-and-coroutines-using-mvvm-in-kotlin-d30fe436ab4c
 
 ## Additional Resources:
 
 ### Architectures:
 
-- https://proandroiddev.com/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7
+- [Android Architecture starring Kotlin Coroutines, Jetpack (MVVM, Room, Paging), Retrofit and Dagger 2](https://proandroiddev.com/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7)
 - https://medium.com/@maqsoodzai1989/android-mvvm-using-dagger-room-navigation-controller-rx-livedata-retrofit-c6fbc4fd11a5
 - https://android.jlelse.eu/android-mvvm-with-dagger-2-retrofit-rxjava-architecture-components-6f5da1a75135
 - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
