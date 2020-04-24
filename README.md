@@ -60,6 +60,7 @@ Inject the repository directly into the ViewModel
 
 - Provide BaseURL via Dagger in ApplicationComponent.
 - PagedList Component.
+- NetworkState
 
 ### Day 12: Testing
 
@@ -67,7 +68,7 @@ Inject the repository directly into the ViewModel
 
 - Inject key from gradle and BuildConfig: https://github.com/PhilippeBoisney/GithubApp/blob/master/app/build.gradle
 - View binding.
-- MultiBinding with Dagger: 
+- MultiBinding with Dagger: (used to inject a viewmodel into its corresponding Activity/Fragment)
     - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
     - https://medium.com/@marco_cattaneo/android-viewmodel-and-factoryprovider-good-way-to-manage-it-with-dagger-2-d9e20a07084c
     - https://www.youtube.com/watch?v=jCYj_MYCgEQ

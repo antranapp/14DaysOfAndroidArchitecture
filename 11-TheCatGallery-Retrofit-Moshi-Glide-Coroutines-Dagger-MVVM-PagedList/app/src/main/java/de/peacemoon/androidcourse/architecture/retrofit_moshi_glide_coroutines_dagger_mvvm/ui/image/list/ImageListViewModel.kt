@@ -24,4 +24,8 @@ class ImageListViewModel(application: Application): BaseViewModel(application) {
 
         imageList = LivePagedListBuilder(dataSourceFactory, config).build()
     }
+
+    fun getImage(position: Int): Image? {
+        return imageList.value?.get(position)
+    }
 }

@@ -12,7 +12,9 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.model.Image
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.utils.GlideApp
 
-class ImageListAdapter(private val context: Context): PagedListAdapter<Image, RecyclerView.ViewHolder>(diffCallback) {
+class ImageListAdapter(
+    private val imageListActivity: ImageListActivity,
+    private val context: Context): PagedListAdapter<Image, RecyclerView.ViewHolder>(diffCallback) {
 
     companion object {
         val diffCallback = object : DiffUtil.ItemCallback<Image>() {
@@ -23,7 +25,6 @@ class ImageListAdapter(private val context: Context): PagedListAdapter<Image, Re
             override fun areContentsTheSame(oldItem: Image, newItem: Image): Boolean {
                 return oldItem == newItem
             }
-
         }
     }
 
@@ -57,7 +58,7 @@ class ImageListAdapter(private val context: Context): PagedListAdapter<Image, Re
         }
 
         override fun onClick(view: View) {
-            //imageListActivity.showImage(adapterPosition)
+            imageListActivity.showImage(adapterPosition)
         }
     }
 }

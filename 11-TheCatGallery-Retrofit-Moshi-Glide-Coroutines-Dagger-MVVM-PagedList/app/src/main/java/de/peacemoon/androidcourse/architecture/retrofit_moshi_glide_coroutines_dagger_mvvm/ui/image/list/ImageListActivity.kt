@@ -45,14 +45,15 @@ class ImageListActivity : AppCompatActivity() {
     }
 
     fun showImage(position: Int) {
-        /*val image = viewModel.getImageList().value!![position]
-        val intent = Intent(this, ImageDetailActivity::class.java).apply {
-            val bundle = Bundle()
-            bundle.putSerializable("image", image)
-            putExtras(bundle)
-        }
+        viewModel.getImage(position)?.let {
+            val intent = Intent(this, ImageDetailActivity::class.java).apply {
+                val bundle = Bundle()
+                bundle.putSerializable("image", it)
+                putExtras(bundle)
+            }
 
-        startActivity(intent)*/
+            startActivity(intent)
+        }
     }
 
     private fun setupListView() {
@@ -61,7 +62,7 @@ class ImageListActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, NUMBER_OF_COLUMN)
         recyclerView.layoutManager = layoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
-        adapter = ImageListAdapter(applicationContext)
+        adapter = ImageListAdapter(this, applicationContext)
         recyclerView.adapter = adapter
     }
 

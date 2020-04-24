@@ -7,6 +7,11 @@ import androidx.lifecycle.MutableLiveData
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.base.BaseViewModel
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.model.Image
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.network.CatImageRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 import javax.inject.Inject
 
 class ImageDetailViewModel(application: Application): BaseViewModel(application) {
@@ -25,22 +30,21 @@ class ImageDetailViewModel(application: Application): BaseViewModel(application)
     }
 
     fun loadImage(imageID: String) {
-        /*repository.getImage(imageID, object: CatImageRepository.Callback<Image?> {
-
-            override fun onSuccess(t: Image?) {
-                updateImage(t)
-            }
-
-            override fun onError(code: Int?, e: Exception?) {
-                code?.let {
-                    Log.e(TAG, "Error: $it")
-                }
-
-                e?.let {
-                    Log.e(TAG, "Exception: ${it.message}")
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repository.getImage(imageID)
+            withContext(Dispatchers.Main) {
+                try {
+                    if (response.isSuccessful) {
+                        updateImage(response.body())
+                    } else {
+                        // Show error
+                    }
+                } catch (e: Exception) {
+                    // Show error
                 }
             }
-        })*/
+
+        }
     }
 
     fun updateImage(newImage: Image?) {
