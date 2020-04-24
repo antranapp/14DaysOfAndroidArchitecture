@@ -25,7 +25,7 @@ class ImageDetailViewModel(application: Application): BaseViewModel(application)
     }
 
     fun loadImage(imageID: String) {
-        repository.getImage(imageID, object: CatImageRepository.Callback<Image?> {
+        /*repository.getImage(imageID, object: CatImageRepository.Callback<Image?> {
 
             override fun onSuccess(t: Image?) {
                 updateImage(t)
@@ -40,7 +40,7 @@ class ImageDetailViewModel(application: Application): BaseViewModel(application)
                     Log.e(TAG, "Exception: ${it.message}")
                 }
             }
-        })
+        })*/
     }
 
     fun updateImage(newImage: Image?) {

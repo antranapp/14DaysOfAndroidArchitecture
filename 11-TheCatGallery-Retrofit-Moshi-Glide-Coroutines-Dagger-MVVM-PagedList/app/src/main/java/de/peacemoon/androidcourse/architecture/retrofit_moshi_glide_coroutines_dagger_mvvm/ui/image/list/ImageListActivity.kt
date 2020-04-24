@@ -39,27 +39,20 @@ class ImageListActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(ImageListViewModel::class.java)
 
-        viewModel.getImageList().observe(this, Observer<List<Image>> { imageList ->
-            loadingSpinner.visibility = View.GONE
-            if (imageList.isNotEmpty()) {
-                adapter.notifyDataSetChanged()
-            }
-        })
-
         setupListView()
 
-        loadImageList()
+        setupBindings()
     }
 
     fun showImage(position: Int) {
-        val image = viewModel.getImageList().value!![position]
+        /*val image = viewModel.getImageList().value!![position]
         val intent = Intent(this, ImageDetailActivity::class.java).apply {
             val bundle = Bundle()
             bundle.putSerializable("image", image)
             putExtras(bundle)
         }
 
-        startActivity(intent)
+        startActivity(intent)*/
     }
 
     private fun setupListView() {
@@ -68,31 +61,14 @@ class ImageListActivity : AppCompatActivity() {
         val layoutManager = GridLayoutManager(this, NUMBER_OF_COLUMN)
         recyclerView.layoutManager = layoutManager
         recyclerView.itemAnimator = DefaultItemAnimator()
-        adapter = ImageListAdapter(
-            this,
-            applicationContext,
-            viewModel.getImageList().value!!
-        )
+        adapter = ImageListAdapter(applicationContext)
         recyclerView.adapter = adapter
-
-        recyclerView.addOnScrollListener(object : PaginationScrollListener(layoutManager) {
-            override fun isLastPage(): Boolean {
-                return viewModel.isLastPage
-            }
-
-            override fun isLoading(): Boolean {
-                return viewModel.isLoading
-            }
-
-            override fun loadMoreItems() {
-                viewModel.page++
-                loadImageList()
-            }
-        })
     }
 
-    private fun loadImageList() {
-        loadingSpinner.visibility = View.VISIBLE
-        viewModel.loadImageList(viewModel.page)
+    private fun setupBindings() {
+        viewModel.imageList.observe(this, Observer { imageList ->
+            loadingSpinner.visibility = View.GONE
+            adapter.submitList(imageList)
+        })
     }
 }

@@ -1,6 +1,6 @@
 package de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.di.module
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
@@ -9,12 +9,12 @@ import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_d
 import javax.inject.Singleton
 
 @Module
-class DatabaseModule(private val application: Application) {
+class DatabaseModule(private val context: Context) {
 
     @Provides
     @Singleton
     fun provideImageDatabase(): ImageDatabase {
-        return Room.databaseBuilder(application, ImageDatabase::class.java, "images.db").build()
+        return Room.databaseBuilder(context, ImageDatabase::class.java, "images.db").build()
     }
 
     @Provides

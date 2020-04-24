@@ -44,7 +44,6 @@ class NetworkModule(private val baseURL: String, private val apiKey: String) {
     fun provideCatImageRepository(retrofit: Retrofit, imageDao: ImageDao): CatImageRepository {
         return CatImageRepository(
             retrofit.create(TheCatAPIService::class.java),
-            apiKey,
             imageDao
         )
     }
