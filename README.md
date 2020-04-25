@@ -1,18 +1,66 @@
-# Android Architectures in 14 days.
+# Learning Android MVVM Architecture in 14 stress free days.
 
-## The cat app
+## Introduction:
 
-- Fetching list of cat images from thecatapi.com.
-- Display the cat image when choosen.
+- Learning Architecture is an important step when learning software development.
+- Architectures are hard to learn since there are so many of them. 
+- Most of tutorials found in Internet introduce to many concepts at the same time and it is hard to follow for most of beginners.
 
-### Day 1: Basic: Raw kotlin without any external libraries:
+## What you should already know:
+
+- You should have some basic knowledges of Object-Oriented programming.
+- You should have some basic knowledges of Android development.
+- You should have installed all required development tools for Android development on your machine.
+
+## What you'll learn:
+
+## What you'll do:
+
+We will implement a cat images browsing app with the following features:
+
+- Fetching list of cat images from [TheCatAPI](https://thecatapi.com).
+- Display the cat image when choosen in a grid layout
+- Use recommended techniques and frameworks from Google to implement the app using MVVM architecture step by step.
+
+
+
+## What's next:
+
+Now you have hopefully learned intuitively how the MVVM Architecture works by implementing a simple app by using different popular frameworks provided by Google and 3rd parties. Depending on your motivation and the level of knowledge, you can follow different paths forward to learn more about Android development.
+
+### A small step: 
+
+Try to apply what you have learnd in another app that uses [the dog api](https://dog.ceo) instead. With this approach, you will have more or less the same structure for you app but you have to deal with a different data model, a different api.
+
+### A medium step: 
+
+There are two options to learn even more:
+
+- Extending the current cat app by implementing additional features such as:
+    - user can favourite images, the information of favourite images should be persisted locally in some kinds of database, and there should be an additional screen to show such favourite images
+
+- Implementing a completely different app using public or private APIs to try out different techniqures:
+    - Github App using Github API
+    - News App using newsapi.org
+    - Image browsing apps using Unsplash or Pixabay APIs
+    - ....
+
+There are a list of public APIs that you can use to implement your next sample app here [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+
+### A gaint step:
+
+Everyone of us has an idea (or multiple ideas) for a killer app (or apps). Go forward and realise your dreams. You will be proud of yourself afterward :)
+
+## Curriculum:
+
+### Day 1: Raw kotlin without any external libraries:
 
 This basic project doesn't use any 3rd party frameworks.
 
 ### Day 2: Volley + Gson + Picasso:
 
-- Volley is used for Networking
-- Gson is used for Deserializing of JSON response
+- Volley is used for Networking.
+- Gson is used for Deserializing of JSON response.
 - Picasso is used for displaying & caching of image data.
 
 ### Day 3: Retrofit + Moshi + Glide:
@@ -87,6 +135,10 @@ Inject the repository directly into the ViewModel
 - https://android.jlelse.eu/android-mvvm-with-dagger-2-retrofit-rxjava-architecture-components-6f5da1a75135
 - https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
 
+### Dagger:
+
+- https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context
+
 ### Completed apps:
 
 - https://github.com/android/architecture-samples
@@ -94,6 +146,5 @@ Inject the repository directly into the ViewModel
 - https://github.com/Eli-Fox/LEGO-Catalog
 - https://github.com/theozgurr/LibraryApp
 
-### Dagger:
 
-- https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context
+

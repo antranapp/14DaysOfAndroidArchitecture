@@ -47,7 +47,7 @@ class ImageDetailViewModel(application: Application): BaseViewModel(application)
         }
     }
 
-    fun updateImage(newImage: Image?) {
+    private fun updateImage(newImage: Image?) {
         newImage?.let {
             image.value = newImage
         }
