@@ -19,11 +19,11 @@ Hands-on coding:
 - Kotlin
     - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
 - Android platform:
-    - (Navigation component)[https://developer.android.com/guide/navigation]
+    - [Navigation component](https://developer.android.com/guide/navigation)
 - Android's Jetpack:
     - [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
 - Android's Architecture Components:
-    - [ViewB inding](https://developer.android.com/topic/libraries/view-binding)
+    - [View Binding](https://developer.android.com/topic/libraries/view-binding)
     - [Handling App Lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle)
     - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
     - [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)
@@ -36,14 +36,14 @@ Hands-on coding:
 We will implement a cat images browsing app with the following features:
 
 - Fetching list of cat images from [TheCatAPI](https://thecatapi.com).
-- Displaying the cat image when choosen in a grid layout.
+- Displaying fetched images in a grid layout.
 - Using recommended techniques and frameworks from Google to implement the app using MVVM architecture step by step.
 - Implementing the app in an incremental process, starting with a pure Kotlin implementation to a full-blown MVVM-based implementation using frameworks in Android's Architecture Components and popular 3rd-party frameworks.
 
 
 ## What's next:
 
-Now you have hopefully learned intuitively how the MVVM Architecture works by implementing a simple app by using different popular frameworks provided by Google and 3rd parties. Depending on your motivation and the level of knowledge, you can follow different paths forward to learn more about Android development.
+After finishing the course, you'll have hopefully learned intuitively how the MVVM Architecture works by implementing a simple app by using different popular frameworks provided by Google and 3rd parties. Depending on your motivation and the level of knowledge, you can follow different paths forward to learn more about Android development.
 
 ### A small step: 
 
@@ -54,7 +54,7 @@ Try to apply what you have learnd in another app that uses [the dog api](https:/
 There are two options to learn even more:
 
 - Extending the current cat app by implementing additional features such as:
-    - user can favourite images, the information of favourite images should be persisted locally in some kinds of database, and there should be an additional screen to show such favourite images
+    - users can favorite images, the information of favorite images should be persisted locally in some kinds of database, and there should be an additional screen to show such favorite images
 
 - Implementing a completely different app using public or private APIs to try out different techniqures:
     - Github App using Github API
@@ -70,91 +70,119 @@ Everyone of us has an idea (or multiple ideas) for a killer app (or apps). Go fo
 
 ## Curriculum:
 
-### Day 1: Raw kotlin without any external libraries:
+### [Day 1: Raw kotlin without any external libraries](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/01-TheCatGallery-Basic)
 
-This basic project doesn't use any 3rd party frameworks.
+This basic project is implemented in pure Kotlin and built-in frameworks from the Android SDK and doesn't use any 3rd party frameworks.
 
-### Day 2: Volley + Gson + Picasso:
+---
+### [Day 2: Volley + Gson + Picasso](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/02-TheCatGallery-Volley-Gson-Picasso)
 
-- Volley is used for Networking.
-- Gson is used for Deserializing of JSON response.
-- Picasso is used for displaying & caching of image data.
+- [Volley](https://developer.android.com/training/volley) is used for **Networking**.
+- [Gson](https://github.com/google/gson) is used for **Deserializing of JSON response**.
+- [Picasso](https://square.github.io/picasso/) is used for **displaying & caching of image data**.
 
-### Day 3: Retrofit + Moshi + Glide:
+---
+### [Day 3: Retrofit + Moshi + Glide](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/03-TheCatGallery-Retrofit-Moshi-Glide)
 
-- Retrofit is used for Networking. Why? 
-- Moshi is used for Deserializing of JSON response. Why?
-- Glide is used for displaying & caching of image data. Why?
+- [Retrofit](https://square.github.io/retrofit/) is used for **Networking**.
+- [Moshi](https://github.com/square/moshi) is used for **Deserializing of JSON response**.
+- [Glide](https://github.com/bumptech/glide) is used for **displaying & caching of image data**.
 
-- https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/
-- https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547
+**Resources**:
 
-### Day 4: Retrofit + Moshi + Glide + RxJava:
+- [How-To: Retrofit, Moshi, Coroutines & Recycler View for REST Web Service Operations with Kotlin for Android](https://www.andreasjakl.com/how-to-retrofit-moshi-coroutines-recycler-view-for-rest-web-service-operations-with-kotlin-for-android/)
+- [Using Glide with Kotlin](https://medium.com/@vlonjatgashi/using-glide-with-kotlin-5e345b557547)
 
-### Day 5: Retrofit + Moshi + Glide + Coroutines:
+---
+### [Day 4: Retrofit + Moshi + Glide + RxJava](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/04-TheCatGallery-Retrofit-Moshi-Glide-RxJava)
 
-- https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
+---
+### [Day 5: Retrofit + Moshi + Glide + Coroutines](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/05-TheCatGallery-Retrofit-Moshi-Glide-Coroutines)
 
-### Day 6: Retrofit + Moshi + Glide + RxJava + Dagger:
+**Resources:**
 
-### Day 7: Retrofit + Moshi + Glide + Coroutines + Dagger:
+- [Kotlin Coroutines and Retrofit](https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f)
 
-### Day 8: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData:
+---
+### [Day 6: Retrofit + Moshi + Glide + RxJava + Dagger](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/06-TheCatGallery-Retrofit-Moshi-Glide-RxJava-Dagger)
 
-- Factory for a specific viewModel: 
-    - https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering
-    - https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff 
-- Factory for generic viewModels: 
-    - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
-    - https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/
+---
+### [Day 7: Retrofit + Moshi + Glide + Coroutines + Dagger](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/07-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger)
 
-### Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored):
+---
+### [Day 8: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/08-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-ViewModel)
+
+**Resources:**
+
+- ViewModelFactory for a specific view model: 
+    - [HOW TO SET UP DAGGER WITH VIEWMODEL & SAVED STATE MODULE](https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering)
+    - [Android ViewModel injection with Dagger](https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff)
+- ViewModelFactory for generic view models: 
+
+---
+### [Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored)](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/09-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-ViewModel2)
 
 Inject the repository directly into the ViewModel
 
-
-### Day 10: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM:
+---
+### [Day 10: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/10-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-MVVM)
 
 - Folder structure
 - Multiple ViewModels
-- Multiple Dagger modules
-- Caching using Room
-    - https://proandroiddev.com/imagining-your-repository-layer-with-coroutines-7ee052ee4caa
+- Multiple `Dagger` modules
+- Caching using `Room`
 
-### Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList
+**Resources:**
+
+- [Imagining your Repository Layer with Coroutines](https://proandroiddev.com/imagining-your-repository-layer-with-coroutines-7ee052ee4caa)
+
+---
+### [Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/11-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-MVVM-PagedList)
 
 - Provide BaseURL via Dagger in ApplicationComponent.
 - PagedList Component.
 - NetworkState
 
+**Resources:**
+
+- [Android Paging Library with Kotlin Coroutines](https://medium.com/@harunwangereka/android-paging-library-with-kotlin-coroutines-b96602e3fae3)
+
+---
 ### Day 12: Testing
 
+---
 ### Day 13: Apply further advanced techniques:
 
+- Clean architecture with interfaces for use cases.
 - Inject key from gradle and BuildConfig: https://github.com/PhilippeBoisney/GithubApp/blob/master/app/build.gradle
 - View binding.
 - MultiBinding with Dagger: (used to inject a viewmodel into its corresponding Activity/Fragment)
-    - https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf
-    - https://medium.com/@marco_cattaneo/android-viewmodel-and-factoryprovider-good-way-to-manage-it-with-dagger-2-d9e20a07084c
-    - https://www.youtube.com/watch?v=jCYj_MYCgEQ
+    - [Using Dagger2 IntoMap API for Android ViewModel Injection](https://android.jlelse.eu/using-dagger2-intomap-api-for-android-viewmodel-injection-cffeb8dd0cdf)
+    - [Dependency Injection of ViewModel with Dagger 2](https://www.techyourchance.com/dependency-injection-viewmodel-with-dagger-2/)
+    - [Android ViewModel and FactoryProvider: good way to manage it with Dagger Multibindings](https://medium.com/@marco_cattaneo/android-viewmodel-and-factoryprovider-good-way-to-manage-it-with-dagger-2-d9e20a07084c)
+    - [Dagger 2 MultiBinding - Inject into ViewModels using MVVM,Dagger and Kotlin](https://www.youtube.com/watch?v=jCYj_MYCgEQ)
 - Check Internet connection
 
 ### Day 14: Use Koin instead of Dagger
 
-- https://medium.com/@gunayadem.dev/boost-your-android-apps-with-koin-and-coroutines-using-mvvm-in-kotlin-d30fe436ab4c
+**Resources:**
+
+- [Playing with… Paging Library, Retrofit, Coroutines, Koin & Testing.](https://proandroiddev.com/playing-with-4f21bc67a7f9)
+- [Boost your Android apps with Koin and Coroutines using MVVM in Kotlin](https://medium.com/@gunayadem.dev/boost-your-android-apps-with-koin-and-coroutines-using-mvvm-in-kotlin-d30fe436ab4c)
 
 ## Additional Resources:
 
 ### Architectures:
 
 - [Android Architecture starring Kotlin Coroutines, Jetpack (MVVM, Room, Paging), Retrofit and Dagger 2](https://proandroiddev.com/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7)
-- https://medium.com/@maqsoodzai1989/android-mvvm-using-dagger-room-navigation-controller-rx-livedata-retrofit-c6fbc4fd11a5
-- https://android.jlelse.eu/android-mvvm-with-dagger-2-retrofit-rxjava-architecture-components-6f5da1a75135
-- https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+- [Android - MVVM using Dagger,room,navigation controller,Rx,Livedata,Retrofit](https://medium.com/@maqsoodzai1989/android-mvvm-using-dagger-room-navigation-controller-rx-livedata-retrofit-c6fbc4fd11a5)
+- [Android MVVM with Dagger 2, Retrofit, RxJava, Architecture Components](https://android.jlelse.eu/android-mvvm-with-dagger-2-retrofit-rxjava-architecture-components-6f5da1a75135)
+- [MVVM with Kotlin — Android Architecture Components, Dagger 2, Retrofit and RxAndroid](https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699)
 
 ### Dagger:
 
-- https://stackoverflow.com/questions/30692501/dagger-2-injecting-android-context
+- [LearnDagger](https://github.com/abhiank/LearnDagger)
+- [Awesome Dagger](https://github.com/andyiac/awesome-dagger)
 
 ### Completed apps:
 
