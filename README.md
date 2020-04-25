@@ -161,6 +161,7 @@ Inject the repository directly into the ViewModel
     - [Dagger 2 MultiBinding - Inject into ViewModels using MVVM,Dagger and Kotlin](https://www.youtube.com/watch?v=jCYj_MYCgEQ)
 - Check Internet connection
 
+---
 ### Day 14: Use Koin instead of Dagger
 
 **Resources:**
