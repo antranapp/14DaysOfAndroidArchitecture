@@ -4,7 +4,7 @@
 
 - Learning Architecture is an important step when learning software development.
 - Architectures are hard to learn since there are so many of them. 
-- Most of tutorials found in Internet introduce to many concepts at the same time and it is hard to follow for most of beginners.
+- Most of tutorials found in Internet introduce too many concepts at the same time and it is hard to follow for most of beginners.
 
 ## What you should already know:
 
@@ -14,14 +14,31 @@
 
 ## What you'll learn:
 
+Hands-on coding:
+
+- Kotlin
+    - [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
+- Android platform:
+    - (Navigation component)[https://developer.android.com/guide/navigation]
+- Android's Jetpack:
+    - [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+- Android's Architecture Components:
+    - [ViewB inding](https://developer.android.com/topic/libraries/view-binding)
+    - [Handling App Lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle)
+    - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
+    - [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)
+    - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
+    - [Room Persistence Library](https://developer.android.com/topic/libraries/architecture/room)
+- Testing
+
 ## What you'll do:
 
 We will implement a cat images browsing app with the following features:
 
 - Fetching list of cat images from [TheCatAPI](https://thecatapi.com).
-- Display the cat image when choosen in a grid layout
-- Use recommended techniques and frameworks from Google to implement the app using MVVM architecture step by step.
-
+- Displaying the cat image when choosen in a grid layout.
+- Using recommended techniques and frameworks from Google to implement the app using MVVM architecture step by step.
+- Implementing the app in an incremental process, starting with a pure Kotlin implementation to a full-blown MVVM-based implementation using frameworks in Android's Architecture Components and popular 3rd-party frameworks.
 
 
 ## What's next:
