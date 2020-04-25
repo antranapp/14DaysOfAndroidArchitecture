@@ -64,9 +64,9 @@ There are two options to learn even more:
 
 There are a list of public APIs that you can use to implement your next sample app here [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
 
-### A gaint step:
+### A giant step:
 
-Everyone of us has an idea (or multiple ideas) for a killer app (or apps). Go forward and realise your dreams. You will be proud of yourself afterward :)
+Everyone of us has an idea (or multiple ideas) for a killer app (or apps). Go forward and realize your dreams. You will be proud of yourself afterward :)
 
 ## Curriculum:
 
@@ -144,6 +144,7 @@ Inject the repository directly into the ViewModel
 **Resources:**
 
 - [Android Paging Library with Kotlin Coroutines](https://medium.com/@harunwangereka/android-paging-library-with-kotlin-coroutines-b96602e3fae3)
+- [Exploring Paging Library from Jetpack](https://proandroiddev.com/exploring-paging-library-from-jetpack-c661c7399662)
 
 ---
 ### Day 12: Testing
@@ -160,6 +161,12 @@ Inject the repository directly into the ViewModel
     - [Android ViewModel and FactoryProvider: good way to manage it with Dagger Multibindings](https://medium.com/@marco_cattaneo/android-viewmodel-and-factoryprovider-good-way-to-manage-it-with-dagger-2-d9e20a07084c)
     - [Dagger 2 MultiBinding - Inject into ViewModels using MVVM,Dagger and Kotlin](https://www.youtube.com/watch?v=jCYj_MYCgEQ)
 - Check Internet connection
+	+ https://proandroiddev.com/android-architecture-components-network-awareness-using-livedata-1a8d3749734d
+- Multi-modules
+- Add SurpervisorJob into ImageDataSource 
+    - https://github.com/PhilippeBoisney/GithubApp/blob/master/app/src/main/java/io/github/philippeboisney/githubapp/pagination/datasource/UserDataSource.kt
+    - https://proandroiddev.com/playing-with-4f21bc67a7f9 
+- Cache the list in `Room`
 
 ---
 ### Day 14: Use Koin instead of Dagger

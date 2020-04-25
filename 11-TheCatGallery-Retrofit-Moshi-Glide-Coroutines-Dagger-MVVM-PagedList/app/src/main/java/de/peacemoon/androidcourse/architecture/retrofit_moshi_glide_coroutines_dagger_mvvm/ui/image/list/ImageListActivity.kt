@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.R
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.model.Image
+import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.network.NetworkState
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.utils.PaginationScrollListener
 import de.peacemoon.androidcourse.architecture.retrofit_moshi_glide_coroutines_dagger_mvvm.ui.image.detail.ImageDetailActivity
 
@@ -68,8 +69,16 @@ class ImageListActivity : AppCompatActivity() {
 
     private fun setupBindings() {
         viewModel.imageList.observe(this, Observer { imageList ->
-            loadingSpinner.visibility = View.GONE
             adapter.submitList(imageList)
+        })
+
+        viewModel.networkState?.observe(this, Observer { networkState ->
+            this.runOnUiThread {
+                when (networkState) {
+                    NetworkState.SUCCESS, NetworkState.FAILED -> loadingSpinner.visibility = View.GONE
+                    NetworkState.LOADING -> loadingSpinner.visibility = View.VISIBLE
+                }
+            }
         })
     }
 }
