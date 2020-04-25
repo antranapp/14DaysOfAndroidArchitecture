@@ -73,11 +73,9 @@ class ImageListActivity : AppCompatActivity() {
         })
 
         viewModel.networkState?.observe(this, Observer { networkState ->
-            this.runOnUiThread {
-                when (networkState) {
-                    NetworkState.SUCCESS, NetworkState.FAILED -> loadingSpinner.visibility = View.GONE
-                    NetworkState.LOADING -> loadingSpinner.visibility = View.VISIBLE
-                }
+            when (networkState) {
+                NetworkState.SUCCESS, NetworkState.FAILED -> loadingSpinner.visibility = View.GONE
+                NetworkState.LOADING -> loadingSpinner.visibility = View.VISIBLE
             }
         })
     }

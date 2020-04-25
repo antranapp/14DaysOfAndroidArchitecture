@@ -137,9 +137,8 @@ Inject the repository directly into the ViewModel
 ---
 ### [Day 11: Retrofit + Moshi + Glide + Coroutines + Dagger + MVVM + PagedList](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/11-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-MVVM-PagedList)
 
-- Provide BaseURL via Dagger in ApplicationComponent.
 - PagedList Component.
-- NetworkState
+- NetworkState in ImageDataSource
 
 **Resources:**
 
