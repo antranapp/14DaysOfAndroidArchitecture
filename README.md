@@ -114,10 +114,8 @@ This basic project is implemented in pure Kotlin and built-in frameworks from th
 
 **Resources:**
 
-- ViewModelFactory for a specific view model: 
-    - [HOW TO SET UP DAGGER WITH VIEWMODEL & SAVED STATE MODULE](https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering)
-    - [Android ViewModel injection with Dagger](https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff)
-- ViewModelFactory for generic view models: 
+- [HOW TO SET UP DAGGER WITH VIEWMODEL & SAVED STATE MODULE](https://www.strv.com/blog/how-to-set-up-dagger-viewmodel-saved-state-module-engineering)
+- [Android ViewModel injection with Dagger](https://medium.com/chili-labs/android-viewmodel-injection-with-dagger-f0061d3402ff)
 
 ---
 ### [Day 9: Retrofit + Moshi + Glide + Coroutines + Dagger + ViewModel + LiveData (Refactored)](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/09-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Dagger-ViewModel2)
