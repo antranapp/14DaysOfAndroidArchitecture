@@ -170,6 +170,8 @@ Inject the repository directly into the ViewModel
 ---
 ### Day 14: Use Koin instead of Dagger
 
+- Build-time code generation (Dagger) vs Runtime dependency injection.
+
 **Resources:**
 
 - [Playing with… Paging Library, Retrofit, Coroutines, Koin & Testing.](https://proandroiddev.com/playing-with-4f21bc67a7f9)
