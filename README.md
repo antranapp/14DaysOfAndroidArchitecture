@@ -168,7 +168,7 @@ Inject the repository directly into the ViewModel
 - Cache the list in `Room`
 
 ---
-### Day 14: Use Koin instead of Dagger
+### [Day 14: Use Koin instead of Dagger](https://github.com/antranapp/14DaysOfAndroidArchitecture/tree/master/14-TheCatGallery-Retrofit-Moshi-Glide-Coroutines-Koin-MVVM-PagedList)
 
 - Build-time code generation (Dagger) vs Runtime dependency injection.
 
