@@ -33,6 +33,9 @@ Hands-on coding:
 
 ## What you'll do:
 
+
+![the cat app](docs/app.gif)
+
 We will implement a cat images browsing app with the following features:
 
 - Fetching list of cat images from [TheCatAPI](https://thecatapi.com).
